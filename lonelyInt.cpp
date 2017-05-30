@@ -21,8 +21,10 @@
 #include <algorithm>
 #include <unordered_map>
 #include <cstring>
+
 using namespace std;
 
+//record number of appearances of numbers in an array
 int arr[100];
 
 int lonelyinteger(vector <int> a) {
@@ -30,10 +32,12 @@ int lonelyinteger(vector <int> a) {
     vector<int>::iterator itr1=a.begin();
     vector<int>::iterator itr2=a.end();
     
+    //recording appearacances
     for(itr1;itr1!=itr2;itr1++){
         arr[*itr1]++;
     }
     
+    //finding the lonely integer which is the index of the number which appeared only once
     for(int i=0;i<100;i++){
         if(arr[i]==1) return i;
     }
@@ -49,6 +53,7 @@ int main() {
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     vector<int> _a;
     
+    //initialize array to set apparances to be zero
     memset(arr,0,sizeof(arr));//include <cstring> to use memset();
     int _a_item;
     
