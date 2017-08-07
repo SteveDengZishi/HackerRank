@@ -52,6 +52,11 @@ int pairs(vector < int > a,int k) {
     int ans=0;
     sort(a.begin(),a.end());
     for(int i=0;i<a.size();i++){
+
+	//std::binary_search(start,end,val) return boolean for existence of value
+	//std::lower_bound(start,end,val) return iterator for the first appearance
+	//std::upper_bound(start,end,val) return iterator for the last appearance
+
         if(binary_search(a.begin(),a.end(),a[i]+k)){
             ans++;
         }
