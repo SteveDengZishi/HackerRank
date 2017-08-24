@@ -8,12 +8,18 @@ long buyMaximumProducts(int n, long k, vector<pair<int,int>> a) {
     sort(a.begin(),a.end());
     long stock=0;
     for(int i=0;i<a.size();i++){
-        for(int j=0;j<a[i].second;j++){
-            if(k-a[i].first>=0){
-                k-=a[i].first;
-                stock++;
+        if(k-a[i].first*a[i].second>=0){
+            k-=a[i].first*a[i].second;
+            stock+=a[i].second;
+        }
+        else{
+           for(int j=0;j<a[i].second;j++){
+               if(k-a[i].first>=0){
+                   k-=a[i].first;
+                   stock++;
+                }
+                else break;
             }
-            else break;
         }
     }
     return stock;
